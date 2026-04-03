@@ -79,17 +79,6 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
   Widget _buildTopBar() {
     return Row(
       children: [
-        IconButton(
-          onPressed: () {
-            if (context.canPop()) {
-              context.pop();
-              return;
-            }
-            context.go(RouteNames.home);
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
-        const SizedBox(width: 2),
         Container(
           width: 48,
           height: 48,
@@ -115,6 +104,11 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
               context,
             ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800),
           ),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.notifications),
+          color: AppColors.primary,
         ),
       ],
     );

@@ -75,12 +75,6 @@ class EditorialBottomNavBar extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: isSelected
-            ? BoxDecoration(
-                color: AppColors.primary.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(AppRadius.full),
-              )
-            : null,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -111,34 +105,31 @@ class EditorialBottomNavBar extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => onTap(2),
-      child: Container(
-        width: 56,
-        height: 56,
-        decoration: BoxDecoration(
-          gradient: isCenterActive
-              ? const LinearGradient(
-                  colors: [AppColors.primary, AppColors.primaryContainer],
-                )
-              : null,
-          color: isCenterActive ? null : AppColors.surfaceContainerHighest,
-          shape: BoxShape.circle,
-          boxShadow: isCenterActive
-              ? [
-                  BoxShadow(
-                    color: AppColors.primary.withValues(alpha: 0.2),
-                    blurRadius: 16,
-                    offset: const Offset(0, 4),
-                  ),
-                ]
-              : null,
-        ),
-        child: Icon(
-          Icons.add,
-          color: isCenterActive
-              ? AppColors.onPrimary
-              : AppColors.onSurfaceVariant,
-          size: 28,
-          fill: isCenterActive ? 1 : 0,
+      behavior: HitTestBehavior.opaque,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.add_circle,
+              color: isCenterActive ? AppColors.primary : Colors.grey.shade400,
+              size: 30,
+              fill: isCenterActive ? 1 : 0,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Add',
+              style: TextStyle(
+                fontSize: 10,
+                fontWeight: isCenterActive ? FontWeight.w700 : FontWeight.w500,
+                letterSpacing: 1.5,
+                color: isCenterActive
+                    ? AppColors.primary
+                    : Colors.grey.shade400,
+              ),
+            ),
+          ],
         ),
       ),
     );

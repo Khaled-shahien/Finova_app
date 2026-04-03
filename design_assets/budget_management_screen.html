@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Financial Atelier - Budgeting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#3b0900",
+            "surface-dim": "#d9dadb",
+            "on-primary-container": "#cacfff",
+            "primary-container": "#3f51b5",
+            "on-background": "#191c1d",
+            "inverse-on-surface": "#f0f1f2",
+            "secondary": "#006a60",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c5c5d4",
+            "secondary-fixed-dim": "#67d9c9",
+            "on-error-container": "#93000a",
+            "secondary-fixed": "#85f6e5",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#191c1d",
+            "secondary-container": "#85f6e5",
+            "on-primary-fixed-variant": "#293ca0",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#f8f9fa",
+            "on-surface-variant": "#454652",
+            "surface-variant": "#e1e3e4",
+            "primary": "#24389c",
+            "error": "#ba1a1a",
+            "inverse-primary": "#bac3ff",
+            "surface-tint": "#4355b9",
+            "tertiary": "#802000",
+            "on-secondary-fixed-variant": "#005048",
+            "background": "#f8f9fa",
+            "primary-fixed": "#dee0ff",
+            "surface-container": "#edeeef",
+            "on-secondary-container": "#007166",
+            "on-tertiary-fixed-variant": "#862200",
+            "tertiary-container": "#a92d00",
+            "outline": "#757684",
+            "surface": "#f8f9fa",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb5a0",
+            "on-tertiary-container": "#ffc5b5",
+            "on-primary-fixed": "#00105c",
+            "on-secondary-fixed": "#00201c",
+            "surface-container-highest": "#e1e3e4",
+            "primary-fixed-dim": "#bac3ff",
+            "surface-container-high": "#e7e8e9",
+            "surface-container-low": "#f3f4f5",
+            "inverse-surface": "#2e3132",
+            "tertiary-fixed": "#ffdbd1",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .tonal-shift-no-border {
+      background-color: #f8f9fa;
+    }
+    .tonal-layering-surface-low {
+      background-color: #f3f4f5;
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen">
+<!-- Top AppBar (from JSON) -->
+<header class="w-full top-0 px-6 pt-8 pb-4 flex justify-between items-center max-w-screen-xl mx-auto tonal-shift-no-border sticky z-50">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed flex items-center justify-center">
+<img alt="Profile" data-alt="close up professional portrait of a business person in soft daylight with a neutral grey studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAttjIoE_mZ7cDZTSKLoZvvJItdVpV5gG6d_JLxcUwTRnfHF73CeoljAbAQoTep1wt221ivBR5a9C_zMMsPDwvYnuqu9I9zvMXR847NbJTBkDCVmnPA6ABSVSB1Z-cLWo6kSW6T4rWVQUUN8Uyw7DUYe9ilnLywe98FCyl8ZN32JotIXNKFlrrHf9hFLDsVg7HyHaZnDwQ9EaMxSv1Mf-wNvDUzBOQ3Boheo84aa3TjoRRIb-WaPmMH7Gc45kXg6tuzPiVjkhPHOCA"/>
+</div>
+<h1 class="font-['Manrope'] font-black text-xl text-[#191c1d]">The Financial Atelier</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 pt-8 pb-32">
+<!-- Hero Section: Budget Overview -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label text-label-sm uppercase tracking-widest text-outline mb-2 block">Monthly Overview</span>
+<h2 class="font-headline text-[3.5rem] font-bold leading-none tracking-tight mb-2">
+            $2,450.00
+          </h2>
+<div class="flex items-center gap-2">
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+              12%
+            </span>
+<span class="text-on-surface-variant font-body text-body-md">Remaining budget for October</span>
+</div>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="bg-surface-container-high px-6 py-3 rounded-full font-semibold text-primary transition-all active:scale-95">
+            Export Report
+          </button>
+<button class="bg-gradient-to-br from-primary to-primary-container px-8 py-3 rounded-full font-semibold text-on-primary shadow-lg shadow-primary/20 transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Create New Budget
+          </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid of Budget Categories -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Category Card: Food & Dining (Yellow State) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:bg-surface-container-low group">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-tertiary-fixed rounded-xl">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="restaurant">restaurant</span>
+</div>
+<button class="text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<h3 class="font-headline text-title-lg font-bold mb-1">Food &amp; Dining</h3>
+<p class="text-on-surface-variant text-body-md mb-6">$640.00 of $800.00</p>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden mb-3">
+<div class="h-full bg-yellow-500 rounded-full" style="width: 80%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label uppercase tracking-widest text-outline">Getting Close</span>
+<span class="text-body-md font-bold text-on-surface">$160.00 left</span>
+</div>
+</div>
+<!-- Category Card: Rent & Utilities (Green State) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:bg-surface-container-low">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-secondary-fixed rounded-xl">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="home">home</span>
+</div>
+<button class="text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<h3 class="font-headline text-title-lg font-bold mb-1">Rent &amp; Utilities</h3>
+<p class="text-on-surface-variant text-body-md mb-6">$1,200.00 of $2,500.00</p>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden mb-3">
+<div class="h-full bg-secondary rounded-full" style="width: 48%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label uppercase tracking-widest text-secondary font-bold">Good Standing</span>
+<span class="text-body-md font-bold text-on-surface">$1,300.00 left</span>
+</div>
+</div>
+<!-- Category Card: Transport (Red State) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:bg-surface-container-low">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-error-container rounded-xl">
+<span class="material-symbols-outlined text-on-error-container" data-icon="directions_car">directions_car</span>
+</div>
+<button class="text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<h3 class="font-headline text-title-lg font-bold mb-1">Transport</h3>
+<p class="text-on-surface-variant text-body-md mb-6">$350.00 of $300.00</p>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden mb-3">
+<div class="h-full bg-error rounded-full" style="width: 100%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label uppercase tracking-widest text-error font-bold">Exceeded</span>
+<span class="text-body-md font-bold text-error">-$50.00 over</span>
+</div>
+</div>
+<!-- Category Card: Entertainment (Green State) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:bg-surface-container-low">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-primary-fixed rounded-xl">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" data-icon="confirmation_number">confirmation_number</span>
+</div>
+<button class="text-outline-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<h3 class="font-headline text-title-lg font-bold mb-1">Entertainment</h3>
+<p class="text-on-surface-variant text-body-md mb-6">$120.00 of $400.00</p>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden mb-3">
+<div class="h-full bg-secondary rounded-full" style="width: 30%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label uppercase tracking-widest text-secondary font-bold">Good Standing</span>
+<span class="text-body-md font-bold text-on-surface">$280.00 left</span>
+</div>
+</div>
+<!-- Asymmetric Empty State / Add Card -->
+<div class="lg:col-span-2 bg-gradient-to-br from-surface-container-low to-surface p-8 rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30">
+<div class="text-center max-w-sm">
+<span class="material-symbols-outlined text-4xl text-outline mb-4" data-icon="dashboard_customize">dashboard_customize</span>
+<h3 class="font-headline text-title-lg font-bold mb-2">Build Your Ledger</h3>
+<p class="text-on-surface-variant text-body-md mb-6">Define a new category to start tracking your spending with editorial precision.</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-semibold transition-all active:scale-95 inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+            Add New Category
+          </button>
+</div>
+</div>
+</div>
+<!-- Analytics Teaser -->
+<section class="mt-16 bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10 md:w-2/3">
+<h3 class="font-headline text-headline-md font-bold mb-4">The Spending Forecast</h3>
+<p class="text-on-surface-variant text-body-md mb-6">Based on your current habits, you are on track to save <strong>$450</strong> more than last month. Consider moving these funds to your "High-Yield Savings" budget.</p>
+<button class="text-primary font-bold flex items-center gap-2 group">
+          View Detailed Analytics
+          <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Abstract Background Element -->
+<div class="absolute -right-10 -top-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Create New Budget FAB (Mobile Only context) -->
+<button class="md:hidden fixed right-6 bottom-28 z-50 bg-gradient-to-br from-primary to-primary-container w-14 h-14 rounded-full flex items-center justify-center text-on-primary shadow-xl active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- Bottom NavBar (from JSON) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-safe bg-[#f8f9fa]/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 shadow-[0_-8px_32px_rgba(25,28,29,0.04)] rounded-t-[24px]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#3F51B5] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#3F51B5] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#3F51B5] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Add</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#3F51B5] transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Insight</span>
+</a>
+<!-- Active State: Budget -->
+<a class="flex flex-col items-center justify-center text-[#3F51B5] dark:text-[#3F51B5] font-bold active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Inter'] font-medium text-[10px] uppercase tracking-widest mt-1">Budget</span>
+</a>
+</nav>
+</body></html>

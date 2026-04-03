@@ -35,6 +35,22 @@ class _AnalyticsInsightsScreenState extends State<AnalyticsInsightsScreen> {
               0,
               (sum, tx) => sum + tx.amount,
             );
+            final monthlyIncome = [
+              2800.0,
+              3200.0,
+              3000.0,
+              3600.0,
+              3400.0,
+              3900.0,
+            ];
+            final monthlyExpense = [
+              2100.0,
+              2400.0,
+              2300.0,
+              2600.0,
+              2550.0,
+              2700.0,
+            ];
 
             return ListView(
               padding: const EdgeInsets.fromLTRB(18, 18, 18, 24),
@@ -73,6 +89,13 @@ class _AnalyticsInsightsScreenState extends State<AnalyticsInsightsScreen> {
                   title: 'Savings goal reached 85% this month.',
                   subtitle: 'Keep this pace to hit your target by August.',
                 ),
+                const SizedBox(height: 14),
+                _TrendsCard(
+                  incomeValues: monthlyIncome,
+                  expenseValues: monthlyExpense,
+                ),
+                const SizedBox(height: 14),
+                _DetailedBreakdownCard(sorted: sorted),
               ],
             );
           },
@@ -353,6 +376,207 @@ class _InsightCard extends StatelessWidget {
               fontSize: 16,
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TrendsCard extends StatelessWidget {
+  const _TrendsCard({required this.incomeValues, required this.expenseValues});
+
+  final List<double> incomeValues;
+  final List<double> expenseValues;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        color: AppColors.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Spending Trends',
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 4),
+          const Text(
+            'Comparison between Income & Expenses',
+            style: TextStyle(color: AppColors.onSurfaceVariant),
+          ),
+          const SizedBox(height: 18),
+          SizedBox(
+            height: 180,
+            child: LineChart(
+              LineChartData(
+                minY: 0,
+                gridData: FlGridData(
+                  show: true,
+                  horizontalInterval: 1000,
+                  drawVerticalLine: false,
+                  getDrawingHorizontalLine: (_) => const FlLine(
+                    color: AppColors.outlineVariant,
+                    strokeWidth: 0.6,
+                  ),
+                ),
+                borderData: FlBorderData(show: false),
+                titlesData: FlTitlesData(
+                  topTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  rightTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  leftTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  bottomTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      getTitlesWidget: (value, meta) {
+                        const labels = [
+                          'Jan',
+                          'Feb',
+                          'Mar',
+                          'Apr',
+                          'May',
+                          'Jun',
+                        ];
+                        if (value < 0 || value > 5) {
+                          return const SizedBox.shrink();
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Text(
+                            labels[value.toInt()],
+                            style: const TextStyle(
+                              fontSize: 10,
+                              color: AppColors.outline,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                lineBarsData: [
+                  LineChartBarData(
+                    spots: List.generate(
+                      incomeValues.length,
+                      (i) => FlSpot(i.toDouble(), incomeValues[i]),
+                    ),
+                    isCurved: true,
+                    color: AppColors.primary,
+                    barWidth: 3,
+                    dotData: const FlDotData(show: false),
+                  ),
+                  LineChartBarData(
+                    spots: List.generate(
+                      expenseValues.length,
+                      (i) => FlSpot(i.toDouble(), expenseValues[i]),
+                    ),
+                    isCurved: true,
+                    color: AppColors.tertiary,
+                    barWidth: 3,
+                    dotData: const FlDotData(show: false),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DetailedBreakdownCard extends StatelessWidget {
+  const _DetailedBreakdownCard({required this.sorted});
+
+  final List<MapEntry<String, double>> sorted;
+
+  @override
+  Widget build(BuildContext context) {
+    final items = sorted.isEmpty
+        ? const [
+            MapEntry<String, double>('Food & Dining', 1240),
+            MapEntry<String, double>('Entertainment', 450),
+            MapEntry<String, double>('Transportation', 890),
+          ]
+        : sorted.take(3).toList();
+
+    return Container(
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        color: AppColors.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(AppRadius.xl),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Detailed Breakdown',
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: 12),
+          ...items.map((entry) {
+            return Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              decoration: BoxDecoration(
+                color: AppColors.surfaceContainerLow,
+                borderRadius: BorderRadius.circular(AppRadius.lg),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 42,
+                    height: 42,
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryFixed,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(
+                      Icons.receipt_long,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          entry.key,
+                          style: const TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                        const Text(
+                          'Monthly category total',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: AppColors.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    '\$${entry.value.toStringAsFixed(2)}',
+                    style: const TextStyle(fontWeight: FontWeight.w800),
+                  ),
+                ],
+              ),
+            );
+          }),
         ],
       ),
     );

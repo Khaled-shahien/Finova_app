@@ -195,7 +195,7 @@ class _TransactionsBrandBar extends StatelessWidget {
             ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
           ),
           const Spacer(),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.tune)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
         ],
       ),
     );
