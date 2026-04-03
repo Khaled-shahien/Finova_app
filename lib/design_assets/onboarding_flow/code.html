@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - The Financial Atelier</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#3b0900",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-container": "#cacfff",
+                        "primary-container": "#3f51b5",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary": "#006a60",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c5c5d4",
+                        "secondary-fixed-dim": "#67d9c9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#85f6e5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "secondary-container": "#85f6e5",
+                        "on-primary-fixed-variant": "#293ca0",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface-variant": "#454652",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#24389c",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bac3ff",
+                        "surface-tint": "#4355b9",
+                        "tertiary": "#802000",
+                        "on-secondary-fixed-variant": "#005048",
+                        "background": "#f8f9fa",
+                        "primary-fixed": "#dee0ff",
+                        "surface-container": "#edeeef",
+                        "on-secondary-container": "#007166",
+                        "on-tertiary-fixed-variant": "#862200",
+                        "tertiary-container": "#a92d00",
+                        "outline": "#757684",
+                        "surface": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb5a0",
+                        "on-tertiary-container": "#ffc5b5",
+                        "on-primary-fixed": "#00105c",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary-fixed-dim": "#bac3ff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#ffdbd1",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-no-border {
+            background-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #191c1d;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #24389c 0%, #3f51b5 100%);
+        }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen overflow-x-hidden">
+<!-- Top Navigation (Onboarding Suppression: No SideNav/BottomNav per instructions) -->
+<header class="w-full top-0 px-6 pt-8 pb-4 flex justify-between items-center max-w-screen-xl mx-auto">
+<div class="font-['Manrope'] font-black text-xl text-[#191c1d]">
+            The Financial Atelier
+        </div>
+<button class="text-primary font-body font-semibold hover:opacity-80 transition-opacity active:scale-95">
+            Skip
+        </button>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 max-w-lg mx-auto w-full pb-24">
+<!-- Slide Container (Conceptual Slide 1 Active) -->
+<div class="w-full flex flex-col items-center">
+<!-- Illustration Area: Bento-inspired Layering -->
+<div class="relative w-full aspect-square mb-12 flex items-center justify-center">
+<!-- Abstract Background Layer -->
+<div class="absolute inset-0 bg-surface-container-low rounded-xl rotate-3 scale-95 opacity-50"></div>
+<div class="absolute inset-0 bg-primary-fixed rounded-xl -rotate-2 scale-90 opacity-30"></div>
+<!-- Main Illustration Content -->
+<div class="relative z-10 w-full h-full bg-surface-container-lowest rounded-xl flex items-center justify-center overflow-hidden">
+<img alt="Financial analysis" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" data-alt="Minimalist top-down view of a designer desk with a smartphone, high-end pen, and leather notebook in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoaViUFK8TJl8xXVWmpase4FF9UJzTn6HIGGpFISyfZ31zE2UWg3Nc0uiVdBPO5tpPMqaLcpFYTo8QWv5UTMTEACjeNI_4rTwZiLrhhh_arJRe9Qenu1lGQJ1fjkVSsbWnc4Qv3w7s4cNeuJYXlZykMtyOO4VYiLbEahExhUvt4fdCvVyz8pEEetftjc144fOLyFjui2WfFb87V5oxowiY8mLEgn8BFcX4sGSu6gXYUSj-URfaalg2kFCeKXYNN2umqqvyhdAIFhA"/>
+<div class="relative z-20 flex flex-col items-center gap-6 p-8 w-full">
+<!-- Floating Data Cards (Editorial Ledger Style) -->
+<div class="w-full bg-surface-container-highest p-4 rounded-xl flex items-center gap-4 translate-x-[-10%] shadow-[0_8px_24px_rgba(25,28,29,0.04)]">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-[10px] font-label uppercase tracking-widest text-outline">Recent Spending</p>
+<p class="font-headline font-bold text-lg text-on-surface">-$124.50</p>
+</div>
+</div>
+<div class="w-full bg-secondary-container p-4 rounded-xl flex items-center gap-4 translate-x-[10%] shadow-[0_8px_24px_rgba(25,28,29,0.04)]">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-secondary-container">Monthly Income</p>
+<p class="font-headline font-bold text-lg text-on-secondary-container">+$4,200.00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Typography Content -->
+<div class="text-center space-y-4">
+<h1 class="font-headline font-extrabold text-3xl tracking-tight text-on-surface">
+                    Track Your Spending
+                </h1>
+<p class="font-body text-on-surface-variant leading-relaxed px-4">
+                    Manage your daily expenses and income effortlessly with our intuitive ledger system.
+                </p>
+</div>
+</div>
+<!-- Slide Content (Hidden Conceptual Slides for context of Next button) -->
+<!-- 
+        Slide 2: "Plan Your Future" 
+        data-alt: "Artistic composition of a luxury watch and gold coins on a silk background with soft ambient lighting"
+        
+        Slide 3: "Insightful Analytics" 
+        data-alt: "Sophisticated glass-like financial charts and 3D data visualizations floating in a clean studio environment"
+        -->
+</main>
+<!-- Fixed Bottom Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full px-6 pb-12 pt-6 bg-surface/80 backdrop-blur-xl">
+<div class="max-w-lg mx-auto flex flex-col gap-8">
+<!-- Progress Indicators -->
+<div class="flex justify-center gap-3">
+<div class="h-1.5 w-8 rounded-full bg-primary"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-outline-variant"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-outline-variant"></div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<!-- For Slide 1 & 2: Primary Next -->
+<button class="flex-1 editorial-gradient text-white py-5 px-8 rounded-full font-body font-bold text-lg shadow-[0_8px_32px_rgba(36,56,156,0.15)] active:scale-95 transition-transform duration-150 flex items-center justify-center gap-2">
+                    Next
+                    <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- On last slide, "Next" becomes "Get Started" and "Skip" disappears -->
+<!-- 
+                <button class="w-full editorial-gradient text-white py-5 px-8 rounded-full font-body font-bold text-lg">
+                    Get Started
+                </button> 
+                -->
+</div>
+</div>
+</footer>
+</body></html>

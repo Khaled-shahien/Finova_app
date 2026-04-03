@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974806323335",
+    "project_id": "fionva-app",
+    "storage_bucket": "fionva-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974806323335:android:d0b37b4d41876d3e052822",
+        "android_client_info": {
+          "package_name": "com.example.finova_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0t6CMm8G-0E0IYLGXD-KirL9v0VbYM8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
