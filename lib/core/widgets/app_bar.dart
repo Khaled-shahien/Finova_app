@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../routing/route_names.dart';
-import '../../core/theme/app_theme.dart';
+import '../theme/app_theme.dart';
 
 /// A customizable editorial-style app bar
 class EditorialAppBar extends StatelessWidget implements PreferredSizeWidget {

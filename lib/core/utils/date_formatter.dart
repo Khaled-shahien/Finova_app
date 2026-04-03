@@ -19,4 +19,20 @@ class DateFormatter {
   static String time(DateTime date) {
     return DateFormat('hh:mm a').format(date);
   }
+
+  static String ledgerHeader(DateTime date) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final target = DateTime(date.year, date.month, date.day);
+    final difference = today.difference(target).inDays;
+
+    final prefix = switch (difference) {
+      0 => 'Today',
+      1 => 'Yesterday',
+      _ => DateFormat('EEEE').format(date),
+    };
+
+    final suffix = DateFormat('MMM dd, yyyy').format(date).toUpperCase();
+    return '$prefix $suffix';
+  }
 }

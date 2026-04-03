@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../models/budget_model.dart';
+import '../../models/budget_model.dart';
+import '../errors/app_exceptions.dart';
 import 'auth_service.dart';
 
 /// CRUD and streams for user budgets.
@@ -34,17 +35,21 @@ class BudgetService {
   Future<void> upsertBudget(BudgetModel budget) async {
     final uid = AuthService.instance.currentUser?.uid;
     if (uid == null) {
-      throw StateError('Cannot save budget without authenticated user.');
+      throw const UnauthenticatedException();
     }
 
     final collection = _collectionForUser(uid);
     final data = budget.toMap();
 
-    if (budget.id.isEmpty) {
-      await collection.add(data);
-      return;
-    }
+    try {
+      if (budget.id.isEmpty) {
+        await collection.add(data);
+        return;
+      }
 
-    await collection.doc(budget.id).set(data, SetOptions(merge: true));
+      await collection.doc(budget.id).set(data, SetOptions(merge: true));
+    } on FirebaseException catch (error) {
+      throw FirebaseOperationException.fromFirestore(error);
+    }
   }
 }

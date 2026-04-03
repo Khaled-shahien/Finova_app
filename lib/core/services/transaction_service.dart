@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../models/transaction_model.dart';
+import '../../models/transaction_model.dart';
+import '../errors/app_exceptions.dart';
 import 'auth_service.dart';
 
 /// CRUD and streams for user transactions.
@@ -54,10 +55,14 @@ class TransactionService {
   Future<void> addTransaction(TransactionModel transaction) async {
     final uid = AuthService.instance.currentUser?.uid;
     if (uid == null) {
-      throw StateError('Cannot add transaction without authenticated user.');
+      throw const UnauthenticatedException();
     }
 
     final payload = transaction.copyWith(userId: uid);
-    await _collectionForUser(uid).add(payload.toMap());
+    try {
+      await _collectionForUser(uid).add(payload.toMap());
+    } on FirebaseException catch (error) {
+      throw FirebaseOperationException.fromFirestore(error);
+    }
   }
 }

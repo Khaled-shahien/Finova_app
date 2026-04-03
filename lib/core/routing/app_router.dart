@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/screens/add_transaction_screen.dart';
-import '../../features/screens/analytics_insights_screen.dart';
-import '../../features/screens/authentication_screen.dart';
-import '../../features/screens/budget_management_screen.dart';
-import '../../features/screens/home_dashboard.dart';
-import '../../features/screens/home_screen.dart';
-import '../../features/screens/onboarding_screen.dart';
-import '../../features/screens/profile_settings_screen.dart';
-import '../../features/screens/transactions_list_screen.dart';
+import '../../features/analytics/presentation/analytics_insights_screen.dart';
+import '../../features/auth/presentation/authentication_screen.dart';
+import '../../features/budgets/presentation/budget_management_screen.dart';
+import '../../features/home/presentation/home_dashboard.dart';
+import '../../features/home/presentation/home_screen.dart';
+import '../../features/onboarding/presentation/onboarding_screen.dart';
+import '../../features/profile/presentation/profile_settings_screen.dart';
+import '../../features/transactions/presentation/add_transaction_screen.dart';
+import '../../features/transactions/presentation/transactions_list_screen.dart';
 import '../services/auth_service.dart';
 import 'route_names.dart';
 

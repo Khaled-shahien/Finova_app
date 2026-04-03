@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'core/constants/app_constants.dart';
 import 'core/routing/app_router.dart';
 import 'core/services/auth_service.dart';
 import 'core/theme/app_theme.dart';
@@ -34,7 +35,7 @@ class _FinovaAppState extends State<FinovaApp> {
       animation: AppThemeController.instance,
       builder: (context, child) {
         return MaterialApp.router(
-          title: 'The Financial Atelier',
+          title: AppConstants.appTitle,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,

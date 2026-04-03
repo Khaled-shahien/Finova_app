@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/theme/app_theme.dart';
+import '../theme/app_theme.dart';
 
 /// A customizable bottom navigation bar following the editorial design system
 class EditorialBottomNavBar extends StatelessWidget {

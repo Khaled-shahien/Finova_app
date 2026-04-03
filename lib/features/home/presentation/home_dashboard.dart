@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/widgets/bottom_nav_bar.dart';
+import '../../../core/widgets/bottom_nav_bar.dart';
 
 /// Root shell that keeps branch navigation state alive.
 class HomeDashboard extends StatelessWidget {

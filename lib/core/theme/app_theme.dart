@@ -182,8 +182,13 @@ class AppTheme {
       seedColor: AppColors.primary,
       brightness: Brightness.dark,
       primary: AppColors.primaryFixedDim,
+      primaryContainer: const Color(0xFF293CA0),
       secondary: AppColors.secondaryFixedDim,
+      secondaryContainer: const Color(0xFF005048),
       tertiary: AppColors.tertiaryFixedDim,
+      tertiaryContainer: const Color(0xFF862200),
+      error: const Color(0xFFFFB4AB),
+      errorContainer: const Color(0xFF93000A),
       surface: const Color(0xFF1A1C1E),
       onSurface: const Color(0xFFE1E3E4),
     );
@@ -192,6 +197,20 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: colorScheme,
       textTheme: _buildTextTheme(brightness: Brightness.dark),
+      appBarTheme: _buildAppBarTheme(),
+      cardTheme: _buildCardTheme(),
+      elevatedButtonTheme: _buildElevatedButtonTheme(),
+      inputDecorationTheme: _buildInputDecorationTheme(),
+      bottomNavigationBarTheme: _buildBottomNavigationBarTheme(),
+      floatingActionButtonTheme: _buildFABTheme(),
+      chipTheme: _buildChipTheme(),
+      extensions: [
+        const EditorialTheme(
+          success: AppColors.secondaryFixedDim,
+          warning: Color(0xFFFFD54F),
+          info: AppColors.primaryFixedDim,
+        ),
+      ],
       scaffoldBackgroundColor: const Color(0xFF1A1C1E),
     );
   }
